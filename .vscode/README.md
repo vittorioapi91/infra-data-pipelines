@@ -11,7 +11,6 @@ This directory contains separate `launch.json` files for each component, organiz
 - `.vscode/macro/imf.json` - IMF data downloader configurations
 - `.vscode/macro/bis.json` - BIS data downloader configurations
 - `.vscode/markets/yfinance.json` - YFinance configurations
-- `.vscode/model/hmm.json` - HMM model configurations
 - `.vscode/launch.json` - Main merged file (auto-generated)
 
 ## Usage

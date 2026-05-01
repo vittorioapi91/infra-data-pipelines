@@ -1,4 +1,4 @@
-# Airflow DAGs for TradingPythonAgent
+# Airflow DAGs for infra-data-pipelines
 
 This directory contains Airflow DAGs for orchestrating data collection workflows.
 
