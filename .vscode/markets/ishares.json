@@ -1,0 +1,39 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "iShares - Download",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.markets.ishares",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--download",
+                "--master",
+                "--holdings"
+            ],
+            "cwd": "${workspaceFolder}",
+            "presentation": { "group": "ishares" }
+        },
+        {
+            "name": "iShares - Upload",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.markets.ishares",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--upload"
+            ],
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "POSTGRES_PASSWORD": "${env:POSTGRES_PASSWORD}",
+                "POSTGRES_USER": "${env:POSTGRES_USER}",
+                "POSTGRES_HOST": "${env:POSTGRES_HOST}",
+                "POSTGRES_PORT": "${env:POSTGRES_PORT}"
+            },
+            "presentation": { "group": "ishares" }
+        }
+    ]
+}

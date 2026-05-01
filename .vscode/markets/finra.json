@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "FINRA - Generate Catalog (Corporate & Agency Bonds)",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.markets.finra",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--generate-catalog",
+                "--corporate-agency-bonds"
+            ],
+            "cwd": "${workspaceFolder}",
+            "presentation": { "group": "finra" }
+        }
+    ]
+}
+

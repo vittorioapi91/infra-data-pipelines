@@ -1,0 +1,32 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "FRED - Generate Catalog",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/macro/fred/fred.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--generate-catalog",
+                "--full-category-search"
+            ],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "FRED - Download Interest Rates (query file)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/macro/fred/fred.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--download-series",
+                "--series-query-file",
+                "categories/interest-rates.sql"
+            ],
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}

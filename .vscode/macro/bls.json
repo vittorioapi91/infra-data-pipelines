@@ -1,0 +1,37 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "BLS - Generate Catalog",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/macro/bls/main.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--generate-catalog"
+            ],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "BLS - Download Specific Series",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/macro/bls/main.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--series",
+                "CUUR0000SA0",
+                "SUUR0000SA0",
+                "--start-year",
+                "2020",
+                "--end-year",
+                "2024",
+                "--format",
+                "both"
+            ],
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}
