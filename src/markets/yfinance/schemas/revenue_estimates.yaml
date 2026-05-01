@@ -1,0 +1,10 @@
+# Revenue estimates (DataFrame-derived from Ticker.revenue_estimate)
+# One file per symbol: array of records
+---
+_index: str
+avg: optional int
+growth: optional float
+high: optional int
+low: optional int
+numberOfAnalysts: optional int
+yearAgoRevenue: optional float

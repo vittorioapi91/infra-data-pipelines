@@ -1,0 +1,10 @@
+# SEC filings (list of records per symbol)
+# Source: Ticker.sec_filings
+---
+date: str
+edgarUrl: str
+epochDate: int
+exhibits: object
+maxAge: int
+title: str
+type: str

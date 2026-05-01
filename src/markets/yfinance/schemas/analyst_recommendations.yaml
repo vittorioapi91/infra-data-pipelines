@@ -1,0 +1,10 @@
+# Analyst recommendations / upgrades_downgrades (list of records per symbol)
+# Source: Ticker.recommendations + Ticker.upgrades_downgrades
+---
+action: str
+date: str          # YYYY-MM-DD
+firm: str
+from_grade: str
+source: str        # "recommendations" | "upgrades_downgrades"
+symbol: str
+to_grade: str

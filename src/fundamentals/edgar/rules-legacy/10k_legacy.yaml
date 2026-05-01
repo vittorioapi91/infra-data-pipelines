@@ -1,0 +1,60 @@
+# 10-K legacy (PEM/IMS text) accounting check rules
+# Used by src/fundamentals/edgar/accounting_checks/10k_legacy.py
+# Keys match scraped labels from filings_scraper_legacy (e.g. "Total Assets", "Total Liabilities And Shareholders' Equity")
+
+relative_tolerance_pct: 5.0
+
+reserved_top_keys:
+  - accession
+  - form_type
+  - period
+  - company
+
+balance_sheet:
+  assets_keys:
+    - Total Assets
+  liabilities_and_equity_keys:
+    - Total Liabilities And Shareholders' Equity
+    - Total Liabilities And Stockholders' Equity
+    - Total Liabilities And Shareholders Equity
+
+income_statement:
+  revenue_keys:
+    - Total Net Sales And Revenues
+    - Total Revenues
+    - Net Sales
+    - Revenues
+  cost_keys:
+    - Total Costs And Expenses
+    - Cost Of Goods And Services Sold
+    - Cost Of Revenue
+  gross_profit_keys:
+    - Gross Profit
+  operating_income_keys:
+    - Operating Income
+    - Operating Income (Loss)
+    - Operating Margin
+  pretax_keys:
+    - Income (Loss) From Continuing Operations Before Income Taxes
+    - Operations Before Income Taxes
+  tax_keys:
+    - Income Tax Expense (Benefit)
+    - Income Tax Expense
+  net_income_keys:
+    - Net Income (Loss)
+    - Net Margin (Loss)
+    - Net Income Loss
+
+cash_flow:
+  operating_keys:
+    - Net Cash Flows From Operating Activities
+    - Net Cash Provided By (Used In) Operating Activities
+  investing_keys:
+    - Net Cash Flows (Used In) Provided By Investing Activities
+    - Net Cash Provided By (Used In) Investing Activities
+  financing_keys:
+    - Net Cash Flows Used In Financing Activities
+    - Net Cash Provided By (Used In) Financing Activities
+  change_in_cash_keys:
+    - Net (Decrease) Increase In Cash And Equivalents
+    - Net Increase (Decrease) In Cash And Cash Equivalents

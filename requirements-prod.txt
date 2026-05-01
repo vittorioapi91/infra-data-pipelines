@@ -1,0 +1,10 @@
+# Production Environment Dependencies
+# This file includes only stable, production-ready dependencies
+# Keep this minimal and well-tested
+
+# Include base requirements
+-r requirements.txt
+
+# Production-specific dependencies
+# Only add production-critical dependencies here
+# All dependencies should be stable, well-tested versions

@@ -1,0 +1,8 @@
+# EPS revisions (DataFrame-derived; column names follow yfinance Ticker.eps_revisions)
+# One file per symbol: array of records
+---
+_index: str
+downLast30days: optional float
+downLast7Days: optional float
+upLast30days: optional float
+upLast7days: optional float

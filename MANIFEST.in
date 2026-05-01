@@ -1,0 +1,10 @@
+# Include _airflow_dags_ directory as part of the package structure
+recursive-include src/_airflow_dags_ *.py *.md
+
+# Explicitly exclude .env files and sensitive configuration files
+global-exclude *.env
+global-exclude .env*
+global-exclude *.env.*
+recursive-exclude * .env
+recursive-exclude * .env.*
+recursive-exclude * *.env

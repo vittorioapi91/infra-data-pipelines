@@ -1,0 +1,8 @@
+# Analyst price targets (single object per symbol or null)
+# Source: Ticker.analyst_price_targets
+---
+current: optional float
+high: optional float
+low: optional float
+mean: optional float
+median: optional float

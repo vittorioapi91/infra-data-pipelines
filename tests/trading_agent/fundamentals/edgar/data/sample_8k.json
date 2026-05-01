@@ -1,0 +1,220 @@
+[
+  {
+    "contextRef": "c-1",
+    "name": "dei:EntityCentralIndexKey",
+    "id": "f-26",
+    "concept": "dei:EntityCentralIndexKey",
+    "value": 1818331
+  },
+  {
+    "contextRef": "c-1",
+    "name": "dei:AmendmentFlag",
+    "format": "ixt:fixed-false",
+    "id": "f-27",
+    "concept": "dei:AmendmentFlag",
+    "value": "false"
+  },
+  {
+    "contextRef": "c-1",
+    "name": "dei:DocumentType",
+    "id": "f-1",
+    "concept": "dei:DocumentType",
+    "value": "8-K"
+  },
+  {
+    "contextRef": "c-1",
+    "name": "dei:DocumentPeriodEndDate",
+    "format": "ixt:date-monthname-day-year-en",
+    "id": "f-2",
+    "concept": "dei:DocumentPeriodEndDate",
+    "value": "2026-01-12"
+  },
+  {
+    "contextRef": "c-1",
+    "name": "dei:EntityFileNumber",
+    "id": "f-3",
+    "concept": "dei:EntityFileNumber",
+    "value": "001-39482"
+  },
+  {
+    "contextRef": "c-1",
+    "name": "dei:EntityRegistrantName",
+    "id": "f-4",
+    "concept": "dei:EntityRegistrantName",
+    "value": "GeneDx Holdings Corp."
+  },
+  {
+    "contextRef": "c-1",
+    "name": "dei:EntityIncorporationStateCountryCode",
+    "format": "ixt-sec:stateprovnameen",
+    "id": "f-5",
+    "concept": "dei:EntityIncorporationStateCountryCode",
+    "value": "(ixTransformValueError)"
+  },
+  {
+    "contextRef": "c-1",
+    "name": "dei:EntityTaxIdentificationNumber",
+    "id": "f-6",
+    "concept": "dei:EntityTaxIdentificationNumber",
+    "value": "85-1966622"
+  },
+  {
+    "contextRef": "c-1",
+    "name": "dei:EntityAddressAddressLine1",
+    "id": "f-7",
+    "concept": "dei:EntityAddressAddressLine1",
+    "value": "333 Ludlow Street"
+  },
+  {
+    "contextRef": "c-1",
+    "name": "dei:EntityAddressAddressLine2",
+    "id": "f-8",
+    "concept": "dei:EntityAddressAddressLine2",
+    "value": "North Tower"
+  },
+  {
+    "contextRef": "c-1",
+    "name": "dei:EntityAddressAddressLine3",
+    "id": "f-9",
+    "concept": "dei:EntityAddressAddressLine3",
+    "value": "6th Floor"
+  },
+  {
+    "contextRef": "c-1",
+    "name": "dei:EntityAddressCityOrTown",
+    "id": "f-10",
+    "concept": "dei:EntityAddressCityOrTown",
+    "value": "Stamford"
+  },
+  {
+    "contextRef": "c-1",
+    "name": "dei:EntityAddressStateOrProvince",
+    "format": "ixt-sec:stateprovnameen",
+    "id": "f-11",
+    "concept": "dei:EntityAddressStateOrProvince",
+    "value": "(ixTransformValueError)"
+  },
+  {
+    "contextRef": "c-1",
+    "name": "dei:EntityAddressPostalZipCode",
+    "id": "f-12",
+    "concept": "dei:EntityAddressPostalZipCode",
+    "value": 6902
+  },
+  {
+    "contextRef": "c-1",
+    "name": "dei:CityAreaCode",
+    "id": "f-13",
+    "concept": "dei:CityAreaCode",
+    "value": 888
+  },
+  {
+    "contextRef": "c-1",
+    "name": "dei:LocalPhoneNumber",
+    "id": "f-14",
+    "concept": "dei:LocalPhoneNumber",
+    "value": "729-1206"
+  },
+  {
+    "contextRef": "c-1",
+    "name": "dei:WrittenCommunications",
+    "format": "ixt:fixed-false",
+    "id": "f-15",
+    "concept": "dei:WrittenCommunications",
+    "value": "false"
+  },
+  {
+    "contextRef": "c-1",
+    "name": "dei:SolicitingMaterial",
+    "format": "ixt:fixed-false",
+    "id": "f-16",
+    "concept": "dei:SolicitingMaterial",
+    "value": "false"
+  },
+  {
+    "contextRef": "c-1",
+    "name": "dei:PreCommencementTenderOffer",
+    "format": "ixt:fixed-false",
+    "id": "f-17",
+    "concept": "dei:PreCommencementTenderOffer",
+    "value": "false"
+  },
+  {
+    "contextRef": "c-1",
+    "name": "dei:PreCommencementIssuerTenderOffer",
+    "format": "ixt:fixed-false",
+    "id": "f-18",
+    "concept": "dei:PreCommencementIssuerTenderOffer",
+    "value": "false"
+  },
+  {
+    "contextRef": "c-2",
+    "name": "dei:Security12bTitle",
+    "id": "f-19",
+    "concept": "dei:Security12bTitle",
+    "value": "Class A common stock, par value $0.0001 per share",
+    "dimensions": {
+      "us-gaap:StatementClassOfStockAxis": null
+    }
+  },
+  {
+    "contextRef": "c-2",
+    "name": "dei:TradingSymbol",
+    "id": "f-20",
+    "concept": "dei:TradingSymbol",
+    "value": "WGS",
+    "dimensions": {
+      "us-gaap:StatementClassOfStockAxis": null
+    }
+  },
+  {
+    "contextRef": "c-2",
+    "name": "dei:SecurityExchangeName",
+    "format": "ixt-sec:exchnameen",
+    "id": "f-21",
+    "concept": "dei:SecurityExchangeName",
+    "value": "(ixTransformValueError)",
+    "dimensions": {
+      "us-gaap:StatementClassOfStockAxis": null
+    }
+  },
+  {
+    "contextRef": "c-3",
+    "name": "dei:Security12bTitle",
+    "id": "f-22",
+    "concept": "dei:Security12bTitle",
+    "value": "Warrants to purchase one share of Class A common stock, each at an exercise price of $379.50 per share",
+    "dimensions": {
+      "us-gaap:StatementClassOfStockAxis": null
+    }
+  },
+  {
+    "contextRef": "c-3",
+    "name": "dei:TradingSymbol",
+    "id": "f-23",
+    "concept": "dei:TradingSymbol",
+    "value": "WGSWW",
+    "dimensions": {
+      "us-gaap:StatementClassOfStockAxis": null
+    }
+  },
+  {
+    "contextRef": "c-3",
+    "name": "dei:SecurityExchangeName",
+    "format": "ixt-sec:exchnameen",
+    "id": "f-24",
+    "concept": "dei:SecurityExchangeName",
+    "value": "(ixTransformValueError)",
+    "dimensions": {
+      "us-gaap:StatementClassOfStockAxis": null
+    }
+  },
+  {
+    "contextRef": "c-1",
+    "name": "dei:EntityEmergingGrowthCompany",
+    "format": "ixt:fixed-false",
+    "id": "f-25",
+    "concept": "dei:EntityEmergingGrowthCompany",
+    "value": "false"
+  }
+]

@@ -1,0 +1,32 @@
+# Earnings guidance extraction patterns for SEC EDGAR HTML filings
+# Used to extract EPS, net income, and qualitative earnings guidance
+
+patterns:
+  eps_range:
+    regex: "(?:eps|earnings\\s+per\\s+share)[:\\s]*(?:of\\s+)?\\$\\s*([\\d.]+)\\s*(?:to|-)\\$?\\s*([\\d.]+)"
+    flags: I
+    type_value: interval
+    output_type: eps
+    capture: [low, high]
+
+  eps_single:
+    regex: "(?:eps|earnings\\s+per\\s+share)[:\\s]*(?:of\\s+)?\\$\\s*([\\d.]+)\\b"
+    flags: I
+    type_value: exact
+    output_type: eps
+    capture: [value]
+
+  net_income_qualitative:
+    regex: "(?:adjusted\\s+)?(?:net\\s+)?(?:income|earnings)\\s+(positive|negative|profit|profitability|breakeven)"
+    flags: I
+    type_value: qualitative
+    output_type: net_income  # or adjusted_net_income when "adjusted" in match
+    capture: [qualitative]
+
+  net_income_range:
+    regex: "(?:adjusted\\s+)?(?:net\\s+)?(?:income|earnings)[:\\s]*(?:of\\s+)?\\$\\s*([\\d,]+(?:\\.\\d+)?)\\s*(?:to|-)\\$?\\s*([\\d,]+(?:\\.\\d+)?)\\s*(million|billion|m|b)?"
+    flags: I
+    type_value: interval
+    output_type: net_income
+    capture: [low, high, unit]
+    unit_default: million

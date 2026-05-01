@@ -1,0 +1,140 @@
+# Equity info (single object per symbol — Ticker.info)
+# Source: Ticker.info
+# Storage: storage/<env>/markets/yfinance/equity_info/<symbol>.json
+# All fields are optional; yfinance returns a flat object with many keys.
+---
+# Identity & listing
+symbol: str
+shortName: str
+longName: str
+quoteType: str
+exchange: str
+fullExchangeName: str
+typeDisp: str
+market: str
+exchangeTimezoneName: str
+exchangeTimezoneShortName: str
+gmtOffSetMilliseconds: int
+language: str
+region: str
+
+# Address & company
+address1: str
+city: str
+state: str
+zip: str
+country: str
+phone: str
+website: str
+irWebsite: str
+
+# Sector / industry
+sector: str
+sectorKey: str
+sectorDisp: str
+industry: str
+industryKey: str
+industryDisp: str
+
+# Description
+longBusinessSummary: str
+fullTimeEmployees: int
+
+# Officers (array of objects: name, title, age?, yearBorn?, fiscalYear?, totalPay?, etc.)
+companyOfficers: array
+executiveTeam: array
+
+# Governance / risk (optional)
+auditRisk: int
+boardRisk: int
+compensationRisk: int
+shareHolderRightsRisk: int
+overallRisk: int
+governanceEpochDate: int
+compensationAsOfEpochDate: int
+
+# Price & market (many optional numeric/timestamp fields)
+previousClose: float
+open: float
+dayLow: float
+dayHigh: float
+regularMarketPreviousClose: float
+regularMarketOpen: float
+regularMarketDayLow: float
+regularMarketDayHigh: float
+regularMarketPrice: float
+regularMarketVolume: int
+regularMarketChange: float
+regularMarketChangePercent: float
+currentPrice: float
+volume: int
+averageVolume: int
+bid: float
+ask: float
+marketCap: int
+enterpriseValue: int
+beta: float
+trailingPE: float
+forwardPE: float
+priceToSalesTrailing12Months: float
+priceToBook: float
+dividendRate: float
+dividendYield: float
+exDividendDate: int
+payoutRatio: float
+fiftyTwoWeekLow: float
+fiftyTwoWeekHigh: float
+fiftyDayAverage: float
+twoHundredDayAverage: float
+sharesOutstanding: int
+floatShares: int
+sharesShort: int
+bookValue: float
+trailingEps: float
+forwardEps: float
+lastFiscalYearEnd: int
+nextFiscalYearEnd: int
+mostRecentQuarter: int
+
+# Analyst / targets
+targetHighPrice: float
+targetLowPrice: float
+targetMeanPrice: float
+targetMedianPrice: float
+recommendationMean: float
+recommendationKey: str
+numberOfAnalystOpinions: int
+averageAnalystRating: str
+
+# Financials (optional)
+totalCash: int
+totalDebt: int
+totalRevenue: int
+ebitda: int
+grossProfits: int
+freeCashflow: int
+operatingCashflow: int
+netIncomeToCommon: int
+totalCashPerShare: float
+revenuePerShare: float
+profitMargins: float
+grossMargins: float
+ebitdaMargins: float
+operatingMargins: float
+returnOnAssets: float
+returnOnEquity: float
+debtToEquity: float
+currentRatio: float
+quickRatio: float
+financialCurrency: str
+currency: str
+
+# Metadata
+maxAge: int
+priceHint: int
+tradeable: bool
+triggerable: bool
+quoteSourceName: str
+messageBoardId: str
+displayName: str
+# ... and other optional Ticker.info keys as returned by yfinance

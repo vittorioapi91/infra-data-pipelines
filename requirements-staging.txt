@@ -1,0 +1,13 @@
+# Staging Environment Dependencies
+# This file includes dependencies for staging/testing environment
+# Staging should closely mirror production but may include additional monitoring/debugging
+
+# Include base requirements
+-r requirements.txt
+
+# Staging-specific dependencies
+# Additional monitoring and validation tools
+pytest-cov>=4.1.0  # Coverage reporting for staging tests
+
+# Staging may include some dev tools for debugging production-like issues
+# but should be closer to production than dev

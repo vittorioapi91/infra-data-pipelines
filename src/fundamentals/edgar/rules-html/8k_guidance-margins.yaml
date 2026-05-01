@@ -1,0 +1,43 @@
+# Margin guidance extraction patterns for SEC EDGAR HTML filings
+# Adjusted and GAAP gross margin
+
+patterns:
+  gross_margin_adj_range:
+    regex: "adjusted\\s+gross\\s+margin(?:\\s+of)?\\s+([\\d.]+)%\\s+(?:to|-)\\s+([\\d.]+)%"
+    flags: I
+    type_value: interval
+    output_type: adjusted_gross_margin
+    capture: [low, high]
+    unit: percent
+
+  gross_margin_adj_single:
+    regex: "adjusted\\s+gross\\s+margin(?:\\s+of)?\\s+(?:approximately\\s+)?([\\d.]+)%(?!\\s+(?:and|to)\\s+[\\d.]+%)"
+    flags: I
+    type_value: exact
+    output_type: adjusted_gross_margin
+    capture: [value]
+    unit: percent
+
+  gross_margin_adj_at_least:
+    regex: "adjusted\\s+gross\\s+margin\\s+at\\s+least\\s+([\\d.]+)%"
+    flags: I
+    type_value: min
+    output_type: adjusted_gross_margin
+    capture: [value]
+    unit: percent
+
+  gross_margin_gaap_single:
+    regex: "GAAP\\s+gross\\s+margin(?:\\s+of)?\\s+(?:approximately\\s+)?([\\d.]+)%"
+    flags: I
+    type_value: exact
+    output_type: gaap_gross_margin
+    capture: [value]
+    unit: percent
+
+  gross_margin_both:
+    regex: "GAAP\\s+and\\s+adjusted\\s+gross\\s+margin(?:\\s+of)?\\s+(?:approximately\\s+)?([\\d.]+)%\\s+and\\s+([\\d.]+)%"
+    flags: I
+    type_value: both
+    output_type: [gaap_gross_margin, adjusted_gross_margin]
+    capture: [gaap_value, adjusted_value]
+    unit: percent

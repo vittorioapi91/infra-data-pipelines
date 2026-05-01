@@ -1,0 +1,722 @@
+# Financial statements (one object per symbol)
+# Source: Ticker income_stmt, balance_sheet, cashflow (yearly + quarterly)
+#
+# Root: object with 6 keys. Each key is optional; type is list | null.
+# List element (Row): object with _index: str and <period>: optional float.
+# Period keys are ISO date strings (e.g. "2025-10-31T00:00:00"). Value type: float | null.
+---
+# Root keys: all optional; type list | null. Element type = Row.
+balance_sheet: optional list | null
+cashflow: optional list | null
+income_stmt: optional list | null
+quarterly_balance_sheet: optional list | null
+quarterly_cashflow: optional list | null
+quarterly_income_stmt: optional list | null
+
+# Row (element of each list above) — subkeys (same for all six lists):
+row_subkeys:
+  _index: str
+  "2021-03-31T00:00:00": optional float
+  "2021-06-30T00:00:00": optional float
+  "2021-09-30T00:00:00": optional float
+  "2021-10-31T00:00:00": optional float
+  "2021-12-31T00:00:00": optional float
+  "2022-03-31T00:00:00": optional float
+  "2022-06-30T00:00:00": optional float
+  "2022-09-30T00:00:00": optional float
+  "2022-10-31T00:00:00": optional float
+  "2022-12-31T00:00:00": optional float
+  "2023-03-31T00:00:00": optional float
+  "2023-06-30T00:00:00": optional float
+  "2023-09-30T00:00:00": optional float
+  "2023-10-31T00:00:00": optional float
+  "2023-12-31T00:00:00": optional float
+  "2024-03-31T00:00:00": optional float
+  "2024-06-30T00:00:00": optional float
+  "2024-07-31T00:00:00": optional float
+  "2024-09-30T00:00:00": optional float
+  "2024-10-31T00:00:00": optional float
+  "2024-12-31T00:00:00": optional float
+  "2025-01-31T00:00:00": optional float
+  "2025-03-31T00:00:00": optional float
+  "2025-04-30T00:00:00": optional float
+  "2025-05-31T00:00:00": optional float
+  "2025-06-30T00:00:00": optional float
+  "2025-07-31T00:00:00": optional float
+  "2025-09-30T00:00:00": optional float
+  "2025-10-31T00:00:00": optional float
+  "2025-12-31T00:00:00": optional float
+
+# balance_sheet Row._index: str, one of:
+balance_sheet_row_index:
+  type: str
+  enum:
+    - Accounts Payable
+    - Accounts Receivable
+    - Accrued Interest Receivable
+    - Accumulated Depreciation
+    - Additional Paid In Capital
+    - Allowance For Doubtful Accounts Receivable
+    - Assets Held For Sale Current
+    - Available For Sale Securities
+    - Buildings And Improvements
+    - Capital Lease Obligations
+    - Capital Stock
+    - Cash And Cash Equivalents
+    - Cash Cash Equivalents And Federal Funds Sold
+    - Cash Cash Equivalents And Short Term Investments
+    - Cash Equivalents
+    - Cash Financial
+    - Commercial Paper
+    - Common Stock
+    - Common Stock Equity
+    - Construction In Progress
+    - Current Accrued Expenses
+    - Current Assets
+    - Current Capital Lease Obligation
+    - Current Debt
+    - Current Debt And Capital Lease Obligation
+    - Current Deferred Assets
+    - Current Deferred Liabilities
+    - Current Deferred Revenue
+    - Current Deferred Taxes Liabilities
+    - Current Liabilities
+    - Current Notes Payable
+    - Current Provisions
+    - Defined Pension Benefit
+    - Derivative Product Liabilities
+    - Dividends Payable
+    - Duefrom Related Parties Current
+    - Duefrom Related Parties Non Current
+    - Dueto Related Parties Current
+    - Dueto Related Parties Non Current
+    - Employee Benefits
+    - Financial Assets
+    - Financial Assets Designatedas Fair Value Through Profitor Loss Total
+    - Finished Goods
+    - Fixed Assets Revaluation Reserve
+    - Foreign Currency Translation Adjustments
+    - Gains Losses Not Affecting Retained Earnings
+    - General Partnership Capital
+    - Goodwill
+    - Goodwill And Other Intangible Assets
+    - Gross Accounts Receivable
+    - Gross PPE
+    - Hedging Assets Current
+    - Held To Maturity Securities
+    - Income Tax Payable
+    - Interest Payable
+    - Inventories Adjustments Allowances
+    - Inventory
+    - Invested Capital
+    - Investment Properties
+    - Investmentin Financial Assets
+    - Investments And Advances
+    - Investments In Other Ventures Under Equity Method
+    - Investmentsin Associatesat Cost
+    - Investmentsin Joint Venturesat Cost
+    - Investmentsin Subsidiariesat Cost
+    - Land And Improvements
+    - Leases
+    - Liabilities Heldfor Sale Non Current
+    - Limited Partnership Capital
+    - Line Of Credit
+    - Loans Receivable
+    - Long Term Capital Lease Obligation
+    - Long Term Debt
+    - Long Term Debt And Capital Lease Obligation
+    - Long Term Equity Investment
+    - Long Term Provisions
+    - Machinery Furniture Equipment
+    - Minimum Pension Liabilities
+    - Minority Interest
+    - Net Debt
+    - Net PPE
+    - Net Tangible Assets
+    - Non Current Accounts Receivable
+    - Non Current Accrued Expenses
+    - Non Current Deferred Assets
+    - Non Current Deferred Liabilities
+    - Non Current Deferred Revenue
+    - Non Current Deferred Taxes Assets
+    - Non Current Deferred Taxes Liabilities
+    - Non Current Note Receivables
+    - Non Current Pension And Other Postretirement Benefit Plans
+    - Non Current Prepaid Assets
+    - Notes Receivable
+    - Ordinary Shares Number
+    - Other Current Assets
+    - Other Current Borrowings
+    - Other Current Liabilities
+    - Other Equity Adjustments
+    - Other Equity Interest
+    - Other Intangible Assets
+    - Other Inventories
+    - Other Investments
+    - Other Non Current Assets
+    - Other Non Current Liabilities
+    - Other Payable
+    - Other Properties
+    - Other Receivables
+    - Other Short Term Investments
+    - Payables
+    - Payables And Accrued Expenses
+    - Pensionand Other Post Retirement Benefit Plans Current
+    - Preferred Securities Outside Stock Equity
+    - Preferred Shares Number
+    - Preferred Stock
+    - Preferred Stock Equity
+    - Prepaid Assets
+    - Properties
+    - Raw Materials
+    - Receivables
+    - Receivables Adjustments Allowances
+    - Restricted Cash
+    - Retained Earnings
+    - Share Issued
+    - Stockholders Equity
+    - Tangible Book Value
+    - Taxes Receivable
+    - Total Assets
+    - Total Capitalization
+    - Total Debt
+    - Total Equity Gross Minority Interest
+    - Total Liabilities Net Minority Interest
+    - Total Non Current Assets
+    - Total Non Current Liabilities Net Minority Interest
+    - Total Partnership Capital
+    - Total Tax Payable
+    - Tradeand Other Payables Non Current
+    - Treasury Shares Number
+    - Treasury Stock
+    - Unrealized Gain Loss
+    - Work In Process
+    - Working Capital
+
+# cashflow Row._index: str, one of:
+cashflow_row_index:
+  type: str
+  enum:
+    - Amortization Cash Flow
+    - Amortization Of Intangibles
+    - Amortization Of Securities
+    - Asset Impairment Charge
+    - Beginning Cash Position
+    - Capital Expenditure
+    - Capital Expenditure Reported
+    - Cash Dividends Paid
+    - Cash Flow From Continuing Financing Activities
+    - Cash Flow From Continuing Investing Activities
+    - Cash Flow From Continuing Operating Activities
+    - Cash Flow From Discontinued Operation
+    - Cash From Discontinued Financing Activities
+    - Cash From Discontinued Investing Activities
+    - Cash From Discontinued Operating Activities
+    - Change In Account Payable
+    - Change In Accrued Expense
+    - Change In Income Tax Payable
+    - Change In Interest Payable
+    - Change In Inventory
+    - Change In Other Current Assets
+    - Change In Other Current Liabilities
+    - Change In Other Working Capital
+    - Change In Payable
+    - Change In Payables And Accrued Expense
+    - Change In Prepaid Assets
+    - Change In Receivables
+    - Change In Tax Payable
+    - Change In Working Capital
+    - Changes In Account Receivables
+    - Changes In Cash
+    - Common Stock Dividend Paid
+    - Common Stock Issuance
+    - Common Stock Payments
+    - Deferred Income Tax
+    - Deferred Tax
+    - Depletion
+    - Depreciation
+    - Depreciation Amortization Depletion
+    - Depreciation And Amortization
+    - Dividend Received Cfo
+    - Dividends Received Cfi
+    - Earnings Losses From Equity Investments
+    - Effect Of Exchange Rate Changes
+    - End Cash Position
+    - Financing Cash Flow
+    - Free Cash Flow
+    - Gain Loss On Investment Securities
+    - Gain Loss On Sale Of Business
+    - Gain Loss On Sale Of PPE
+    - Income Tax Paid Supplemental Data
+    - Interest Paid Cff
+    - Interest Paid Cfo
+    - Interest Paid Supplemental Data
+    - Interest Received Cfi
+    - Interest Received Cfo
+    - Investing Cash Flow
+    - Issuance Of Capital Stock
+    - Issuance Of Debt
+    - Long Term Debt Issuance
+    - Long Term Debt Payments
+    - Net Business Purchase And Sale
+    - Net Common Stock Issuance
+    - Net Foreign Currency Exchange Gain Loss
+    - Net Income From Continuing Operations
+    - Net Intangibles Purchase And Sale
+    - Net Investment Properties Purchase And Sale
+    - Net Investment Purchase And Sale
+    - Net Issuance Payments Of Debt
+    - Net Long Term Debt Issuance
+    - Net Other Financing Charges
+    - Net Other Investing Changes
+    - Net PPE Purchase And Sale
+    - Net Preferred Stock Issuance
+    - Net Short Term Debt Issuance
+    - Operating Cash Flow
+    - Operating Gains Losses
+    - Other Cash Adjustment Outside Changein Cash
+    - Other Non Cash Items
+    - Pension And Employee Benefit Expense
+    - Preferred Stock Dividend Paid
+    - Preferred Stock Issuance
+    - Preferred Stock Payments
+    - Proceeds From Stock Option Exercised
+    - Provisionand Write Offof Assets
+    - Purchase Of Business
+    - Purchase Of Intangibles
+    - Purchase Of Investment
+    - Purchase Of Investment Properties
+    - Purchase Of PPE
+    - Repayment Of Debt
+    - Repurchase Of Capital Stock
+    - Sale Of Business
+    - Sale Of Intangibles
+    - Sale Of Investment
+    - Sale Of Investment Properties
+    - Sale Of PPE
+    - Short Term Debt Issuance
+    - Short Term Debt Payments
+    - Stock Based Compensation
+    - Taxes Refund Paid
+    - Unrealized Gain Loss On Investment Securities
+
+# income_stmt Row._index: str, one of:
+income_stmt_row_index:
+  type: str
+  enum:
+    - Amortization
+    - Amortization Of Intangibles Income Statement
+    - Average Dilution Earnings
+    - Basic Average Shares
+    - Basic EPS
+    - Cost Of Revenue
+    - Depreciation Amortization Depletion Income Statement
+    - Depreciation And Amortization In Income Statement
+    - Depreciation Income Statement
+    - Diluted Average Shares
+    - Diluted EPS
+    - Diluted NI Availto Com Stockholders
+    - EBIT
+    - EBITDA
+    - Earnings From Equity Interest
+    - Earnings From Equity Interest Net Of Tax
+    - Excise Taxes
+    - Gain On Sale Of Business
+    - Gain On Sale Of Ppe
+    - Gain On Sale Of Security
+    - General And Administrative Expense
+    - Gross Profit
+    - Impairment Of Capital Assets
+    - Insurance And Claims
+    - Interest Expense
+    - Interest Expense Non Operating
+    - Interest Income
+    - Interest Income Non Operating
+    - Loss Adjustment Expense
+    - Minority Interests
+    - Net Income
+    - Net Income Common Stockholders
+    - Net Income Continuous Operations
+    - Net Income Discontinuous Operations
+    - Net Income From Continuing And Discontinued Operation
+    - Net Income From Continuing Operation Net Minority Interest
+    - Net Income From Tax Loss Carryforward
+    - Net Income Including Noncontrolling Interests
+    - Net Interest Income
+    - Net Non Operating Interest Income Expense
+    - Net Policyholder Benefits And Claims
+    - Normalized EBITDA
+    - Normalized Income
+    - Occupancy And Equipment
+    - Operating Expense
+    - Operating Income
+    - Operating Revenue
+    - Other Gand A
+    - Other Income Expense
+    - Other Non Interest Expense
+    - Other Non Operating Income Expenses
+    - Other Operating Expenses
+    - Other Special Charges
+    - Other Taxes
+    - Otherunder Preferred Stock Dividend
+    - Policyholder Benefits Ceded
+    - Policyholder Benefits Gross
+    - Preferred Stock Dividends
+    - Pretax Income
+    - Professional Expense And Contract Services Expense
+    - Provision For Doubtful Accounts
+    - Reconciled Cost Of Revenue
+    - Reconciled Depreciation
+    - Rent And Landing Fees
+    - Rent Expense Supplemental
+    - Research And Development
+    - Restructuring And Mergern Acquisition
+    - Salaries And Wages
+    - Selling And Marketing Expense
+    - Selling General And Administration
+    - Special Income Charges
+    - Tax Effect Of Unusual Items
+    - Tax Provision
+    - Tax Rate For Calcs
+    - Total Expenses
+    - Total Operating Income As Reported
+    - Total Other Finance Cost
+    - Total Revenue
+    - Total Unusual Items
+    - Total Unusual Items Excluding Goodwill
+    - Write Off
+
+# quarterly_balance_sheet Row._index: str, one of:
+quarterly_balance_sheet_row_index:
+  type: str
+  enum:
+    - Accounts Payable
+    - Accounts Receivable
+    - Accrued Interest Receivable
+    - Accumulated Depreciation
+    - Additional Paid In Capital
+    - Allowance For Doubtful Accounts Receivable
+    - Assets Held For Sale Current
+    - Available For Sale Securities
+    - Buildings And Improvements
+    - Capital Lease Obligations
+    - Capital Stock
+    - Cash And Cash Equivalents
+    - Cash Cash Equivalents And Federal Funds Sold
+    - Cash Cash Equivalents And Short Term Investments
+    - Cash Equivalents
+    - Cash Financial
+    - Commercial Paper
+    - Common Stock
+    - Common Stock Equity
+    - Construction In Progress
+    - Current Accrued Expenses
+    - Current Assets
+    - Current Capital Lease Obligation
+    - Current Debt
+    - Current Debt And Capital Lease Obligation
+    - Current Deferred Assets
+    - Current Deferred Liabilities
+    - Current Deferred Revenue
+    - Current Liabilities
+    - Current Notes Payable
+    - Current Provisions
+    - Defined Pension Benefit
+    - Derivative Product Liabilities
+    - Dividends Payable
+    - Duefrom Related Parties Current
+    - Duefrom Related Parties Non Current
+    - Dueto Related Parties Current
+    - Dueto Related Parties Non Current
+    - Employee Benefits
+    - Financial Assets
+    - Financial Assets Designatedas Fair Value Through Profitor Loss Total
+    - Finished Goods
+    - Fixed Assets Revaluation Reserve
+    - Foreign Currency Translation Adjustments
+    - Gains Losses Not Affecting Retained Earnings
+    - Goodwill
+    - Goodwill And Other Intangible Assets
+    - Gross Accounts Receivable
+    - Gross PPE
+    - Hedging Assets Current
+    - Held To Maturity Securities
+    - Income Tax Payable
+    - Interest Payable
+    - Inventories Adjustments Allowances
+    - Inventory
+    - Invested Capital
+    - Investment Properties
+    - Investmentin Financial Assets
+    - Investments And Advances
+    - Investments In Other Ventures Under Equity Method
+    - Investmentsin Associatesat Cost
+    - Investmentsin Joint Venturesat Cost
+    - Investmentsin Subsidiariesat Cost
+    - Land And Improvements
+    - Leases
+    - Liabilities Heldfor Sale Non Current
+    - Line Of Credit
+    - Loans Receivable
+    - Long Term Capital Lease Obligation
+    - Long Term Debt
+    - Long Term Debt And Capital Lease Obligation
+    - Long Term Equity Investment
+    - Long Term Provisions
+    - Machinery Furniture Equipment
+    - Minimum Pension Liabilities
+    - Minority Interest
+    - Net Debt
+    - Net PPE
+    - Net Tangible Assets
+    - Non Current Accounts Receivable
+    - Non Current Accrued Expenses
+    - Non Current Deferred Assets
+    - Non Current Deferred Liabilities
+    - Non Current Deferred Revenue
+    - Non Current Deferred Taxes Assets
+    - Non Current Deferred Taxes Liabilities
+    - Non Current Note Receivables
+    - Non Current Pension And Other Postretirement Benefit Plans
+    - Non Current Prepaid Assets
+    - Notes Receivable
+    - Ordinary Shares Number
+    - Other Current Assets
+    - Other Current Borrowings
+    - Other Current Liabilities
+    - Other Equity Adjustments
+    - Other Equity Interest
+    - Other Intangible Assets
+    - Other Inventories
+    - Other Investments
+    - Other Non Current Assets
+    - Other Non Current Liabilities
+    - Other Payable
+    - Other Properties
+    - Other Receivables
+    - Other Short Term Investments
+    - Payables
+    - Payables And Accrued Expenses
+    - Pensionand Other Post Retirement Benefit Plans Current
+    - Preferred Securities Outside Stock Equity
+    - Preferred Shares Number
+    - Preferred Stock
+    - Preferred Stock Equity
+    - Prepaid Assets
+    - Properties
+    - Raw Materials
+    - Receivables
+    - Receivables Adjustments Allowances
+    - Restricted Cash
+    - Retained Earnings
+    - Share Issued
+    - Stockholders Equity
+    - Tangible Book Value
+    - Taxes Receivable
+    - Total Assets
+    - Total Capitalization
+    - Total Debt
+    - Total Equity Gross Minority Interest
+    - Total Liabilities Net Minority Interest
+    - Total Non Current Assets
+    - Total Non Current Liabilities Net Minority Interest
+    - Total Tax Payable
+    - Tradeand Other Payables Non Current
+    - Trading Securities
+    - Treasury Shares Number
+    - Treasury Stock
+    - Work In Process
+    - Working Capital
+
+# quarterly_cashflow Row._index: str, one of:
+quarterly_cashflow_row_index:
+  type: str
+  enum:
+    - Amortization Cash Flow
+    - Amortization Of Intangibles
+    - Amortization Of Securities
+    - Asset Impairment Charge
+    - Beginning Cash Position
+    - Capital Expenditure
+    - Capital Expenditure Reported
+    - Cash Dividends Paid
+    - Cash Flow From Continuing Financing Activities
+    - Cash Flow From Continuing Investing Activities
+    - Cash Flow From Continuing Operating Activities
+    - Cash Flow From Discontinued Operation
+    - Cash From Discontinued Financing Activities
+    - Cash From Discontinued Investing Activities
+    - Cash From Discontinued Operating Activities
+    - Change In Account Payable
+    - Change In Accrued Expense
+    - Change In Dividend Payable
+    - Change In Income Tax Payable
+    - Change In Interest Payable
+    - Change In Inventory
+    - Change In Other Current Assets
+    - Change In Other Current Liabilities
+    - Change In Other Working Capital
+    - Change In Payable
+    - Change In Payables And Accrued Expense
+    - Change In Prepaid Assets
+    - Change In Receivables
+    - Change In Tax Payable
+    - Change In Working Capital
+    - Changes In Account Receivables
+    - Changes In Cash
+    - Common Stock Dividend Paid
+    - Common Stock Issuance
+    - Common Stock Payments
+    - Deferred Income Tax
+    - Deferred Tax
+    - Depreciation
+    - Depreciation Amortization Depletion
+    - Depreciation And Amortization
+    - Dividend Received Cfo
+    - Dividends Received Cfi
+    - Earnings Losses From Equity Investments
+    - Effect Of Exchange Rate Changes
+    - End Cash Position
+    - Financing Cash Flow
+    - Free Cash Flow
+    - Gain Loss On Investment Securities
+    - Gain Loss On Sale Of Business
+    - Gain Loss On Sale Of PPE
+    - Income Tax Paid Supplemental Data
+    - Interest Paid Cff
+    - Interest Paid Cfo
+    - Interest Paid Supplemental Data
+    - Interest Received Cfi
+    - Interest Received Cfo
+    - Investing Cash Flow
+    - Issuance Of Capital Stock
+    - Issuance Of Debt
+    - Long Term Debt Issuance
+    - Long Term Debt Payments
+    - Net Business Purchase And Sale
+    - Net Common Stock Issuance
+    - Net Foreign Currency Exchange Gain Loss
+    - Net Income From Continuing Operations
+    - Net Intangibles Purchase And Sale
+    - Net Investment Properties Purchase And Sale
+    - Net Investment Purchase And Sale
+    - Net Issuance Payments Of Debt
+    - Net Long Term Debt Issuance
+    - Net Other Financing Charges
+    - Net Other Investing Changes
+    - Net PPE Purchase And Sale
+    - Net Preferred Stock Issuance
+    - Net Short Term Debt Issuance
+    - Operating Cash Flow
+    - Operating Gains Losses
+    - Other Cash Adjustment Inside Changein Cash
+    - Other Cash Adjustment Outside Changein Cash
+    - Other Non Cash Items
+    - Pension And Employee Benefit Expense
+    - Preferred Stock Dividend Paid
+    - Preferred Stock Issuance
+    - Preferred Stock Payments
+    - Proceeds From Stock Option Exercised
+    - Provisionand Write Offof Assets
+    - Purchase Of Business
+    - Purchase Of Intangibles
+    - Purchase Of Investment
+    - Purchase Of Investment Properties
+    - Purchase Of PPE
+    - Repayment Of Debt
+    - Repurchase Of Capital Stock
+    - Sale Of Business
+    - Sale Of Intangibles
+    - Sale Of Investment
+    - Sale Of Investment Properties
+    - Sale Of PPE
+    - Short Term Debt Issuance
+    - Short Term Debt Payments
+    - Stock Based Compensation
+    - Taxes Refund Paid
+    - Unrealized Gain Loss On Investment Securities
+
+# quarterly_income_stmt Row._index: str, one of:
+quarterly_income_stmt_row_index:
+  type: str
+  enum:
+    - Amortization
+    - Amortization Of Intangibles Income Statement
+    - Average Dilution Earnings
+    - Basic Average Shares
+    - Basic EPS
+    - Cost Of Revenue
+    - Depreciation Amortization Depletion Income Statement
+    - Depreciation And Amortization In Income Statement
+    - Depreciation Income Statement
+    - Diluted Average Shares
+    - Diluted EPS
+    - Diluted NI Availto Com Stockholders
+    - EBIT
+    - EBITDA
+    - Earnings From Equity Interest
+    - Earnings From Equity Interest Net Of Tax
+    - Excise Taxes
+    - Gain On Sale Of Business
+    - Gain On Sale Of Ppe
+    - Gain On Sale Of Security
+    - General And Administrative Expense
+    - Gross Profit
+    - Impairment Of Capital Assets
+    - Insurance And Claims
+    - Interest Expense
+    - Interest Expense Non Operating
+    - Interest Income
+    - Interest Income Non Operating
+    - Loss Adjustment Expense
+    - Minority Interests
+    - Net Income
+    - Net Income Common Stockholders
+    - Net Income Continuous Operations
+    - Net Income Discontinuous Operations
+    - Net Income From Continuing And Discontinued Operation
+    - Net Income From Continuing Operation Net Minority Interest
+    - Net Income Including Noncontrolling Interests
+    - Net Interest Income
+    - Net Non Operating Interest Income Expense
+    - Net Policyholder Benefits And Claims
+    - Normalized EBITDA
+    - Normalized Income
+    - Occupancy And Equipment
+    - Operating Expense
+    - Operating Income
+    - Operating Revenue
+    - Other Gand A
+    - Other Income Expense
+    - Other Non Interest Expense
+    - Other Non Operating Income Expenses
+    - Other Operating Expenses
+    - Other Special Charges
+    - Other Taxes
+    - Otherunder Preferred Stock Dividend
+    - Policyholder Benefits Ceded
+    - Policyholder Benefits Gross
+    - Preferred Stock Dividends
+    - Pretax Income
+    - Professional Expense And Contract Services Expense
+    - Provision For Doubtful Accounts
+    - Reconciled Cost Of Revenue
+    - Reconciled Depreciation
+    - Rent And Landing Fees
+    - Rent Expense Supplemental
+    - Research And Development
+    - Restructuring And Mergern Acquisition
+    - Salaries And Wages
+    - Selling And Marketing Expense
+    - Selling General And Administration
+    - Special Income Charges
+    - Tax Effect Of Unusual Items
+    - Tax Provision
+    - Tax Rate For Calcs
+    - Total Expenses
+    - Total Operating Income As Reported
+    - Total Other Finance Cost
+    - Total Revenue
+    - Total Unusual Items
+    - Total Unusual Items Excluding Goodwill
+    - Write Off

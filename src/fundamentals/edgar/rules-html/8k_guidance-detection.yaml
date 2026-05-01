@@ -1,0 +1,29 @@
+# Document-level heuristics: which DOCUMENT blocks to process for guidance
+# Used by _has_guidance() to decide if a block likely contains forward guidance
+
+# Keywords in document description (e.g. "Press Release - Guidance Update")
+description_keywords:
+  - guidance
+  - expects
+  - outlook
+  - preliminary
+  - forecast
+  - expectations
+
+# Keywords in document content (plain text)
+content_keywords:
+  - guidance
+  - expects
+  - outlook
+  - preliminary
+  - forecast
+  - full year
+  - fiscal year
+  - annual revenue
+  - quarterly revenue
+
+# Regex patterns in content (any match => has_guidance)
+content_patterns:
+  - "\\$[\\d,]+(?:\\.\\d+)?\\s*(?:to|-)\\s*\\$[\\d,]+(?:\\.\\d+)?\\s*(?:million|m|b|billion)?"
+  - "[\\d.]+%\\s*(?:to|-)\\s*[\\d.]+%"
+  - "(?:full\\s+year|fy)\\s+20\\d{2}\\s+guidance"

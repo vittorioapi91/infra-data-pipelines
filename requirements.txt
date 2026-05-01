@@ -1,0 +1,79 @@
+# Core dependencies
+pandas>=2.0.0
+numpy>=1.24.0
+requests>=2.31.0
+curl_cffi>=0.7.0
+aiohttp>=3.9.0  # For async HTTP requests
+
+# FRED API for economic data
+fredapi>=0.5.1
+
+# SSL certificate support
+certifi>=2023.0.0
+urllib3>=2.0.0
+
+# Data storage formats
+pyarrow>=12.0.0  # For parquet file support
+duckdb>=0.9.0  # For managing parquet files
+
+# Configuration file support
+python-dotenv>=1.0.0
+PyYAML>=6.0.0
+
+# Progress bars
+tqdm>=4.65.0
+
+# Eurostat data (SDMX API)
+sdmx1>=2.15.0
+
+# IMF data
+imfp>=1.0.0
+
+# Web scraping
+selenium>=4.15.0
+beautifulsoup4>=4.12.0
+
+# Excel file support
+openpyxl>=3.1.0
+xlrd>=2.0.0
+
+# Yahoo Finance
+yfinance>=0.2.0
+
+# PostgreSQL support
+psycopg2-binary>=2.9.0
+
+# SEC EDGAR XBRL / iXBRL parsing (with EFM validation extras)
+arelle-release[EFM]>=2.36.0
+
+# Local LLM inference (MLX for Apple Silicon)
+transformers>=4.36.0
+mlx-lm>=0.17.0
+
+# ML Modeling Dependencies
+# Pyro for probabilistic programming and HMM
+pyro-ppl>=1.8.6
+torch>=2.0.0
+scikit-learn>=1.3.0
+
+# MLflow for experiment tracking
+mlflow>=2.8.0
+
+# Feast for feature store
+feast>=0.36.0
+
+# Kubeflow Pipelines
+kfp>=2.5.0
+
+# KServe for model serving (optional - requires Python <3.12)
+# Note: KServe doesn't support Python 3.13 yet
+# Install manually if needed: pip install kserve==0.10.2
+# kubernetes>=28.0.0  # Uncomment if using KServe
+
+# Prometheus metrics
+prometheus-client>=0.19.0
+
+# Testing
+pytest>=7.4.0
+pytest-mock>=3.11.0
+pytest-html>=4.1.0

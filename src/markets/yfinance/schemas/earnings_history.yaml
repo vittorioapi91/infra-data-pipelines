@@ -1,0 +1,8 @@
+# Earnings history (DataFrame-derived from Ticker.earnings_history)
+# One file per symbol: array of records
+---
+_index: str
+epsActual: float
+epsDifference: float
+epsEstimate: float
+surprisePercent: float

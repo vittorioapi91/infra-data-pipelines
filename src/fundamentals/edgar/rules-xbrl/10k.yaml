@@ -1,0 +1,304 @@
+# 10-K XBRL accounting check rules
+# Used by src/fundamentals/edgar/accounting_checks/10k.py
+
+relative_tolerance_pct: 5.0
+
+reserved_top_keys:
+  - ticker
+  - exchange
+  - dei
+
+temporary_equity:
+  primary_keys:
+    - us-gaap:TemporaryEquityCarryingAmountAttributableToParent
+    - us-gaap:TemporaryEquityCarryingAmountIncludingPortionAttributableToNoncontrollingInterests
+  primary_substring_match:
+    - TemporaryEquityCarryingAmountAttributableToParent
+    - TemporaryEquityCarryingAmountIncludingPortionAttributableToNoncontrollingInterests
+  mezz_keys:
+    - us-gaap:RedeemableNoncontrollingInterestEquityCarryingAmount
+    - us-gaap:RedeemableNoncontrollingInterestEquityPreferredCarryingAmount
+    - us-gaap:RedeemableNoncontrollingInterestEquityCommonCarryingAmount
+    - us-gaap:RedeemableNoncontrollingInterestEquityOtherCarryingAmount
+  alt_keys:
+    - us-gaap:TemporaryEquityValueExcludingAdditionalPaidInCapital
+    - us-gaap:TemporaryEquityAggregateAmountOfRedemptionRequirement
+    - us-gaap:TemporaryEquityLiquidationPreference
+    - us-gaap:SharesSubjectToMandatoryRedemptionSettlementTermsAmount
+
+equity:
+  total_dimensions:
+    - Parent
+    - ParentMember
+  rollup_component_dimensions:
+    - CommonStock
+    - OrdinaryShares
+    - CommonClassA
+    - CommonClassB
+    - CommonClassC
+    - CommonClassX
+    - OtherAdditionalCapital
+    - PreferredStock
+    - AdditionalPaidInCapital
+    - RetainedEarnings
+    - AccumulatedOtherComprehensiveIncome
+    - TreasuryStockCommon
+    - ReserveforESOPDebtRetirement
+    - TreasuryStockCommonAndPreferred
+    - CommonStockIncludingAdditionalPaidInCapital
+  aoci_parent_dimensions:
+    - AccumulatedOtherComprehensiveIncome
+    - AociIncludingPortionAttributableToNoncontrollingInterest
+  aoci_child_dimensions:
+    - AccumulatedNetInvestmentGainLossIncludingPortionAttributableToNoncontrollingInterest
+    - AccumulatedDefinedBenefitPlansAdjustmentNetGainLossIncludingPortionAttributableToNoncontrollingInterest
+    - AccumulatedForeignCurrencyAdjustmentIncludingPortionAttributableToNoncontrollingInterest
+    - AccumulatedGainLossNetCashFlowHedgeParent
+    - AccumulatedTranslationAdjustment
+    - AccumulatedNetUnrealizedInvestmentGainLoss
+    - AccumulatedDefinedBenefitPlansAdjustment
+
+balance_sheet:
+  assets_key: us-gaap:Assets
+  liabilities_key: us-gaap:Liabilities
+  stockholders_equity_keys:
+    - us-gaap:StockholdersEquity
+    - us-gaap:StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest
+  liabilities_and_equity_key: us-gaap:LiabilitiesAndStockholdersEquity
+  assets_current_key: us-gaap:AssetsCurrent
+  assets_noncurrent_key: us-gaap:AssetsNoncurrent
+  liabilities_current_key: us-gaap:LiabilitiesCurrent
+  liabilities_noncurrent_key: us-gaap:LiabilitiesNoncurrent
+  # For component derivation: keys containing these substrings (undimensioned)
+  assets_noncurrent_contains: [Assets, Noncurrent]
+  assets_current_contains: [Assets, Current]
+  assets_current_exclude: Noncurrent
+  liabilities_noncurrent_contains: [Liabilities, Noncurrent]
+  liabilities_current_contains: [Liabilities, Current]
+  liabilities_current_exclude: Noncurrent
+  other_payable_noncurrent_contains:
+    - PayableNoncurrent
+    - Liabilities
+    - Noncurrent
+
+gross_profit:
+  revenue_concepts:
+    - us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax
+    - us-gaap:Revenues
+    - us-gaap:NetSales
+  cost_concepts:
+    - us-gaap:CostOfGoodsAndServicesSold
+    - us-gaap:CostOfRevenue
+  gross_profit_key: us-gaap:GrossProfit
+
+operating_income:
+  gross_profit_key: us-gaap:GrossProfit
+  operating_expenses_key: us-gaap:OperatingExpenses
+  operating_income_key: us-gaap:OperatingIncomeLoss
+
+pretax_tax_net:
+  pretax_concepts:
+    - us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest
+    - us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxes
+    - us-gaap:IncomeLossBeforeIncomeTaxes
+  tax_concepts:
+    - us-gaap:IncomeTaxExpenseBenefit
+    - us-gaap:IncomeTaxExpenseBenefitContinuingOperationsDiscontinuedOperationsExtraordinaryItems
+  net_concepts:
+    - us-gaap:NetIncomeLoss
+    - us-gaap:ProfitLoss
+
+comprehensive_income:
+  net_concepts:
+    - us-gaap:NetIncomeLoss
+    - us-gaap:ProfitLoss
+  oci_concepts:
+    - us-gaap:OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent
+    - us-gaap:OtherComprehensiveIncomeLossNetOfTax
+    - us-gaap:OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent [AccumulatedOtherComprehensiveIncome]
+    - us-gaap:OtherComprehensiveIncomeLossNetOfTax [AccumulatedOtherComprehensiveIncome]
+    - us-gaap:OtherComprehensiveIncomeNetOfTaxPortionAttributableToParent
+    - us-gaap:OtherComprehensiveIncomeNetOfTax
+  comprehensive_concepts:
+    - us-gaap:ComprehensiveIncomeNetOfTax
+    - us-gaap:ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest
+
+cash_flow:
+  operating_concepts:
+    - us-gaap:NetCashProvidedByUsedInOperatingActivities
+    - us-gaap:NetCashProvidedByUsedInOperatingActivitiesContinuingOperations
+  investing_concepts:
+    - us-gaap:NetCashProvidedByUsedInInvestingActivities
+    - us-gaap:NetCashProvidedByUsedInInvestingActivitiesContinuingOperations
+  financing_concepts:
+    - us-gaap:NetCashProvidedByUsedInFinancingActivities
+    - us-gaap:NetCashProvidedByUsedInFinancingActivitiesContinuingOperations
+  change_in_cash_concepts:
+    - us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalentsPeriodIncreaseDecreaseIncludingExchangeRateEffect
+    - us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalentsPeriodIncreaseDecreaseIncludingExchangeRateEffectContinuingOperations
+    - us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalentsPeriodIncreaseDecreaseExcludingExchangeRateEffect
+  fx_concepts:
+    - us-gaap:EffectOfExchangeRateOnCashCashEquivalentsRestrictedCashAndRestrictedCashEquivalentsIncludingDisposalGroupAndDiscontinuedOperations
+    - us-gaap:EffectOfExchangeRateOnCashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents
+  discontinued_concepts:
+    main: us-gaap:NetCashProvidedByUsedInDiscontinuedOperations
+    operating: us-gaap:CashProvidedByUsedInOperatingActivitiesDiscontinuedOperations
+    investing: us-gaap:CashProvidedByUsedInInvestingActivitiesDiscontinuedOperations
+    financing: us-gaap:CashProvidedByUsedInFinancingActivitiesDiscontinuedOperations
+
+other_opex_keys:
+  - us-gaap:RestructuringAndRelatedCostIncurredCost
+  - us-gaap:RestructuringAndRelatedCosts
+  - us-gaap:BusinessCombinationAcquisitionRelatedCosts
+  - us-gaap:OtherOperatingIncomeExpenseNet
+
+operating_expenses_rd_sga:
+  operating_expenses_key: us-gaap:OperatingExpenses
+  rd_key: us-gaap:ResearchAndDevelopmentExpense
+  sga_key: us-gaap:SellingGeneralAndAdministrativeExpense
+  opex_extension_contains: Opex
+  opex_extension_exclude:
+    - ResearchAndDevelopmentExpense
+    - SellingGeneralAndAdministrativeExpense
+
+nonoperating:
+  agg_keys:
+    - us-gaap:NonoperatingIncomeExpense
+    - us-gaap:OtherIncomeExpenseNet
+    - us-gaap:TotalOtherIncomeExpenseNet
+    - us-gaap:InterestIncomeExpenseNonoperatingNet
+  interest_net_keys:
+    - us-gaap:InterestIncomeExpenseNetNonoperating
+    - us-gaap:InterestIncomeExpenseNet
+    - us-gaap:InterestIncomeExpenseNonoperatingNet
+  interest_component_keys:
+    - us-gaap:InterestIncomeNonoperating
+    - us-gaap:InterestExpenseNonoperating
+    - us-gaap:InterestIncome
+    - us-gaap:InterestExpense
+  investment_income_keys:
+    - us-gaap:InvestmentIncomeNonoperating
+    - us-gaap:InvestmentIncomeNet
+    - us-gaap:InvestmentIncomeInterest
+  other_nonop_keys:
+    - us-gaap:OtherNonoperatingIncomeExpenseNet
+    - us-gaap:OtherNonoperatingIncomeExpense
+    - us-gaap:InterestAndOtherIncome
+    - us-gaap:InterestAndDebtExpense
+    - us-gaap:InterestAndOtherIncomeLoss
+  extra_keys:
+    - us-gaap:InterestExpenseOther
+    - us-gaap:InterestExpenseDebt
+    - us-gaap:InterestExpenseDebtExcludingAmortization
+    - us-gaap:ForeignCurrencyTransactionGainLossBeforeTax
+    - us-gaap:ForeignCurrencyTransactionGainLoss
+    - us-gaap:GainLossOnDerivativeInstrumentsNetPretax
+    - us-gaap:GainLossOnDerivativeInstrumentsHeldForTradingPurposesNet
+    - us-gaap:RealizedInvestmentGainsLosses
+    - us-gaap:UnrealizedGainLossOnInvestments
+    - us-gaap:MarketableSecuritiesGainLossExcludingOtherThanTemporaryImpairments
+    - us-gaap:GainsLossesOnExtinguishmentOfDebt
+    - us-gaap:GainsLossesOnExtinguishmentOfDebtBeforeWriteOffOfDeferredDebtIssuanceCost
+    - us-gaap:EquityMethodInvestmentEarningsLoss
+    - us-gaap:IncomeLossFromEquityMethodInvestments
+  nonop_extension_contains:
+    - Nonoperating
+    - NonOperating
+  nonop_extension_exclude:
+    - IncomeTax
+    - BeforeIncomeTaxes
+  # Heuristic filters for is_income_statement_like_key / is_nonop_component_key
+  exclude_tokens:
+    - cash
+    - increase
+    - decrease
+    - payment
+    - payments
+    - paid
+    - proceeds
+    - repayment
+    - issuance
+    - purchase
+    - acquire
+    - disposal
+    - capitalexpend
+    - depreciation
+    - amortization
+    - assets
+    - liabilit
+    - equity
+    - receivable
+    - payable
+    - inventory
+    - propertyplant
+    - rightofuse
+    - lease
+    - debtinstrument
+    - shares
+    - stock
+    - dividend
+    - dividends
+    - earningspershare
+    - eps
+    - netincome
+    - profitloss
+    - comprehensiveincome
+    - beforeincometaxes
+    - incomelossfromcontinuingoperations
+    - incomelossfromdiscontinuedoperations
+    - discontinuedoperation
+    - discontinuedoperations
+  include_tokens:
+    - nonoperat
+    - otherincome
+    - otherexpense
+    - other income
+    - other expense
+    - interest
+    - investment
+    - dividend
+    - foreigncurrency
+    - fx
+    - deriv
+    - fairvalue
+    - remeasure
+    - extinguish
+    - gain
+    - loss
+    - warrant
+    - equitymethod
+  component_exclude_subtotals:
+    - operatingincomeloss
+    - netincomeloss
+    - profitloss
+    - comprehensiveincome
+    - beforeincometaxes
+    - incomelossfromcontinuingoperations
+    - incomelossfromdiscontinuedoperations
+    - discontinuedoperation
+    - discontinuedoperations
+    - incometax
+
+revenue_product_service:
+  total_concepts:
+    - us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax
+    - us-gaap:Revenues
+    - us-gaap:NetSales
+  product_key: us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax [Product]
+  service_key: us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax [Service]
+
+cost_product_service:
+  total_concepts:
+    - us-gaap:CostOfGoodsAndServicesSold
+    - us-gaap:CostOfRevenue
+  product_key: us-gaap:CostOfGoodsAndServicesSold [Product]
+  service_key: us-gaap:CostOfGoodsAndServicesSold [Service]
+
+segment_revenue:
+  total_concept: us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax
+  segments:
+    - us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax [AmericasSegment]
+    - us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax [EuropeSegment]
+    - us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax [GreaterChinaSegment]
+    - us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax [JapanSegment]
+    - us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax [RestOfAsiaPacificSegment]

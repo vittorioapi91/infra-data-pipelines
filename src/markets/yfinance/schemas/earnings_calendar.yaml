@@ -1,0 +1,7 @@
+# Earnings calendar / earnings_dates (DataFrame-derived)
+# One file per symbol: array of records
+---
+_index: str
+EPS Estimate: optional float
+Reported EPS: optional float
+Surprise(%): optional float

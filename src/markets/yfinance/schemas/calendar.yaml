@@ -1,0 +1,12 @@
+# Calendar events (dividend, ex-dividend, earnings, etc.)
+# Source: Ticker.calendar; single object per symbol or null
+---
+Dividend Date: str
+Earnings Average: float
+Earnings Date: list
+Earnings High: float
+Earnings Low: float
+Ex-Dividend Date: str
+Revenue Average: int
+Revenue High: int
+Revenue Low: int

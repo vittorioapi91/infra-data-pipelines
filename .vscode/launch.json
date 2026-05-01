@@ -1,0 +1,425 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "EDGAR - Download Quarter Filings",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/fundamentals/edgar/edgar.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--download-raw-quarter-filings",
+                "--year",
+                "${input:edgarYear}",
+                "--quarter",
+                "${input:edgarQuarter}",
+                "--form-type",
+                "${input:edgarFormType}"
+            ],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "EDGAR - Scrape Quarter Filings",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/fundamentals/edgar/edgar.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--filings-zip",
+                "--scrape-filings",
+                "--year",
+                "${input:edgarYear}",
+                "--quarter",
+                "${input:edgarQuarter}",
+                "--form-type",
+                "${input:edgarFormType}",
+                "--debug"
+            ],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "EDGAR - Generate Catalog (All Companies)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/fundamentals/edgar/edgar.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--generate-catalog"
+            ],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "FRED - Generate Catalog",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/macro/fred/fred.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--generate-catalog",
+                "--full-category-search"
+            ],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "FRED - Download Interest Rates (query file)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/macro/fred/fred.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--download-series",
+                "--series-query-file",
+                "categories/interest-rates.sql"
+            ],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "BLS - Download Specific Series",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/macro/bls/main.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--series",
+                "CUUR0000SA0",
+                "SUUR0000SA0",
+                "--start-year",
+                "2020",
+                "--end-year",
+                "2024",
+                "--format",
+                "both"
+            ],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "BLS - Generate Catalog",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/macro/bls/main.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--generate-catalog"
+            ],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "Eurostat - Generate Catalog",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/macro/eurostat/eurostat.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--generate-catalog"
+            ],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "Eurostat - Download Series",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/macro/eurostat/eurostat.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--download-series"
+            ],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "Eurostat - Download Specific Dataset",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/macro/eurostat/eurostat.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--series",
+                "nama_10_gdp"
+            ],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "IMF - Download Specific Indicators",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/trading_agent/macro_model/imf/main.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--database",
+                "IFS",
+                "--series",
+                "NGDP_RPCH",
+                "NGDPD",
+                "--format",
+                "both"
+            ],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "IMF - List Databases",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/trading_agent/macro_model/imf/main.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--list-databases"
+            ],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "IMF - List Indicators (IFS)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/trading_agent/macro_model/imf/main.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--database",
+                "IFS",
+                "--list-indicators"
+            ],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "BIS - List Dataflows",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/trading_agent/macro_model/bis/main.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--list-dataflows"
+            ],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "BIS - Download Dataset (Example)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/trading_agent/macro_model/bis/main.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--from-parquet",
+                "${workspaceFolder}/src/trading_agent/macro_model/bis/bis_parquet",
+                "--dataflow",
+                "WS_CBPOL_D",
+                "--key",
+                "ALL"
+            ],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "YFinance - Generate Catalog",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.markets.yfinance",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--generate-catalog"
+            ],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "YFinance - Update all metadata",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.markets.yfinance",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--update-metadata"
+            ],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "YFinance - Update all metadata (extended)",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.markets.yfinance",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--update-metadata",
+                "--extended-data"
+            ],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "YFinance - Upload equity_info",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.markets.yfinance",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--upload-equity-info"
+            ],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "YFinance - Download timeseries (ETF)",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.markets.yfinance",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--download-timeseries",
+                "--etf"
+            ],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "iShares - Download",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.markets.ishares",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--download",
+                "--master",
+                "--holdings"
+            ],
+            "cwd": "${workspaceFolder}",
+            "presentation": {
+                "group": "ishares"
+            }
+        },
+        {
+            "name": "iShares - Upload",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.markets.ishares",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--upload"
+            ],
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "POSTGRES_PASSWORD": "${env:POSTGRES_PASSWORD}",
+                "POSTGRES_USER": "${env:POSTGRES_USER}",
+                "POSTGRES_HOST": "${env:POSTGRES_HOST}",
+                "POSTGRES_PORT": "${env:POSTGRES_PORT}"
+            },
+            "presentation": {
+                "group": "ishares"
+            }
+        },
+        {
+            "name": "Hyperliquid - Generate Catalog",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.markets.hyperliquid",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--generate-catalog"
+            ],
+            "cwd": "${workspaceFolder}",
+            "presentation": {
+                "group": "hyperliquid"
+            }
+        },
+        {
+            "name": "FINRA - Generate Catalog (Corporate & Agency Bonds)",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.markets.finra",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--generate-catalog",
+                "--corporate-agency-bonds"
+            ],
+            "cwd": "${workspaceFolder}",
+            "presentation": {
+                "group": "finra"
+            }
+        },
+        {
+            "name": "HMM Model Calibration (Local Debug)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/model/macro/main.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}",
+                "POSTGRES_PASSWORD": "${env:POSTGRES_PASSWORD}",
+                "POSTGRES_PORT": "55432",
+                "MLFLOW_TRACKING_URI": "http://localhost:55000"
+            },
+            "args": [
+                "--series-ids",
+                "GDP",
+                "UNRATE",
+                "CPIAUCSL",
+                "--start-date",
+                "2000-01-01",
+                "--n-regimes",
+                "4",
+                "--covariance-type",
+                "full",
+                "--random-state",
+                "42",
+                "--feature-method",
+                "pct_change",
+                "--dbname",
+                "fred",
+                "--dbuser",
+                "tradingAgent",
+                "--dbhost",
+                "localhost",
+                "--mlflow-tracking-uri",
+                "http://localhost:55000",
+                "--experiment-name",
+                "macro-cycle-hmm",
+                "--prometheus-port",
+                "8000"
+            ],
+            "justMyCode": false,
+            "stopOnEntry": false
+        }
+    ],
+    "inputs": [
+        {
+            "id": "edgarYear",
+            "type": "promptString",
+            "description": "Year (e.g. 2026)",
+            "default": "2026"
+        },
+        {
+            "id": "edgarQuarter",
+            "type": "pickString",
+            "description": "Quarter",
+            "options": [
+                "QTR1",
+                "QTR2",
+                "QTR3",
+                "QTR4"
+            ],
+            "default": "QTR1"
+        },
+        {
+            "id": "edgarFormType",
+            "type": "promptString",
+            "description": "Form type (e.g. 10-K, 10-Q)",
+            "default": "10-K"
+        }
+    ]
+}

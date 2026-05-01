@@ -1,0 +1,50 @@
+# Context patterns for guidance extraction
+# Period detection, vs_prior (raised/lowered), and forward-looking vs reported-results context
+
+# Period patterns: FY and quarterly
+periods:
+  fy:
+    regex: "(?:full\\s+year|fy|fiscal\\s+year)\\s+(20\\d{2})"
+    flags: I
+    format: "FY{year}"  # year from group 1
+
+  quarter:
+    regex: "q([1-4])\\s*(20\\d{2})|(?:first|second|third|fourth)\\s+quarter\\s+(20\\d{2})"
+    flags: I
+    format: "q{1}_{2}"  # q1_2025 etc; quarter from group 1 or inferred from word
+
+# vs_prior: how guidance changed relative to prior (raised/lowered/reiterated etc)
+vs_prior:
+  - label: raised
+    regex: "\\b(?:raised?|raises?|raising)\\s+(?:guidance|outlook|forecast)"
+  - label: lowered
+    regex: "\\b(?:lowered?|lowers?|lowering|reduced?|reduces?)\\s+(?:guidance|outlook|forecast)"
+  - label: reiterated
+    regex: "\\b(?:reiterat(?:ed|es?)|reaffirm(?:ed|s))\\s+(?:guidance|outlook|forecast)"
+  - label: maintained
+    regex: "\\b(?:maintain(?:ed|s)|confirm(?:ed|s))\\s+(?:guidance|outlook|forecast)"
+  - label: narrowed
+    regex: "\\b(?:narrow(?:ed|s)|tighten(?:ed|s))\\s+(?:guidance|range)"
+  # If this matches, override raised/lowered -> maintained (historical, not current)
+  - label: historical
+    regex: "\\b(?:previously|had|earlier)\\s+(?:raised?|lowered?|raises?|lowers?)\\s+(?:guidance|outlook|forecast)"
+
+# Context: exclude matches (indicates reported results, not guidance)
+results_context:
+  - "Three\\s+Months\\s+Ended|Nine\\s+Months\\s+Ended"
+  - "(?:reported|achieved|actual)\\s+(?:revenue|sales|net\\s+earnings|eps)"
+  - "Net\\s+sales\\s+(?:increased|decreased|were)\\s+"
+  - "(?:increased|decreased)\\s+to\\s+\\$"
+  - "Diluted\\s+earnings\\s+per\\s+share\\s+\\$"
+  - "(?:Unaudited|Preliminary)\\s*[,;]?\\s*\\(?\\$"
+
+# Context: include matches (indicates forward-looking guidance)
+guidance_context:
+  - "\\b(?:expects?|expecting)\\s+(?:net\\s+sales|revenue|to\\s+report|to\\s+deliver)"
+  - "\\b(?:expects?|expecting)\\s+\\w+\\s+to\\s+"
+  - "\\b(?:outlook|guidance)\\s+(?:for|:)"
+  - "(?:Full\\s+Year|Fiscal)\\s+20\\d{2}\\s+Outlook"
+  - "20\\d{2}\\s+Guidance\\b"
+  - "(?:anticipates?|projects?|forecasts?)\\s+"
+  - "expects?\\s+(?:revenue|net\\s+sales|diluted\\s+eps)"
+  - "guidance\\s+(?:expecting|of|for|revised)"

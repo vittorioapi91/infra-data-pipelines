@@ -1,0 +1,2 @@
+"""Eurostat data downloader module"""
+

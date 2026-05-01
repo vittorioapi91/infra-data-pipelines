@@ -1,0 +1,105 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv
+.venv-kserve
+# Jenkins venv (created during CI/CD)
+.venv-jenkins/
+
+# IDE
+# Ignore .vscode by default; explicitly allow launch configs and merge script
+.vscode/*
+!.vscode/launch.json
+!.vscode/merge_launch_configs.py
+!.vscode/**/*.md
+!.vscode/**/*.py
+# Component launch configs (edgar.json, fred.json, etc.)
+!.vscode/fundamentals/
+!.vscode/fundamentals/*.json
+!.vscode/macro/
+!.vscode/macro/*.json
+!.vscode/markets/
+!.vscode/markets/*.json
+!.vscode/model/
+!.vscode/model/*.json
+.cursor/
+.githooks/
+.idea/
+*.swp
+*.swo
+*~
+
+# Environment variables
+.env
+.env.local
+.env.dev
+.env.test
+.env.prod
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jenkins data (runtime/operational data - should not be versioned)
+# Exclude entire data directory - all runtime Jenkins data
+.ops/.jenkins/data/
+
+# Storage (runtime data - not versioned)
+storage/
+
+# Large data files
+*.parquet
+**/backup_parquet/
+**/edgar_companies/
+src/trading_agent/fundamentals/edgar/master/
+company_tickers.json
+
+# Python build artifacts (keep directory, ignore contents)
+build/
+dist/
+*.egg-info/
+
+# Airflow wheels (wheels are built and copied here, but not versioned)
+.ops/.airflow/wheels/*.whl
+
+# Airflow log directories
+.ops/.airflow/logs-*/
+.ops/.airflow/logs-dev/
+.ops/.airflow/logs-test/
+.ops/.airflow/logs-prod/
+
+# Airflow DAGs (installed from airflow-dags/ by scripts/install-dags.sh)
+# Keep __init__.py and README.md, but ignore installed DAG files
+.ops/.airflow/dags/*.py
+!.ops/.airflow/dags/__init__.py
+!.ops/.airflow/dags/README.md
+
+# SSL certificates (self-signed for local development)
+.ops/.docker/ssl/*.key
+.ops/.docker/ssl/*.crt

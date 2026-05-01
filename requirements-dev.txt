@@ -1,0 +1,22 @@
+# Development Environment Dependencies
+# This file includes all dependencies for development, including experimental and testing tools
+
+# Include base requirements
+-r requirements.txt
+
+# Development-specific dependencies
+# Testing and development tools
+pytest-cov>=4.1.0  # Coverage reporting
+pytest-xdist>=3.3.0  # Parallel test execution
+black>=23.0.0  # Code formatting
+flake8>=6.0.0  # Linting
+mypy>=1.5.0  # Type checking
+ipython>=8.15.0  # Enhanced REPL
+jupyter>=1.0.0  # Notebooks for exploration
+
+# Development debugging tools
+ipdb>=0.13.0  # Enhanced debugger
+memory-profiler>=0.61.0  # Memory profiling
+
+# Experimental/bleeding edge packages (dev only)
+# Add experimental packages here that aren't ready for production

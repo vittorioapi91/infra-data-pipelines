@@ -1,0 +1,31 @@
+# Revenue guidance extraction patterns for SEC EDGAR HTML filings
+# Extracts revenue ranges and single values; uses metric_from_context for disambiguation
+
+patterns:
+  revenue_range:
+    regex: "\\$\\s*([\\d,]+(?:\\.\\d+)?)\\s*(?:to|-)\\s*\\$\\s*([\\d,]+(?:\\.\\d+)?)\\s*(million|billion|m|b)?"
+    flags: I
+    type_value: interval
+    capture: [low, high, unit]
+    unit_default: million
+    requires_metric_context: true
+
+  revenue_single:
+    regex: "\\$\\s*([\\d,]+(?:\\.\\d+)?)\\s*(million|billion|m|b)\\b"
+    flags: I
+    type_value: exact
+    capture: [value, unit]
+    requires_metric_context: true
+
+# Metric labels for _revenue_metric_from_context (which metric type is this?)
+metric_patterns:
+  - name: exome_and_genome_revenue
+    regex: "exome\\s+and\\s+genome\\s+revenue"
+  - name: revenue
+    regex: "\\brevenue[s]?\\b"
+
+# Patterns that exclude a match (e.g. "$X to Y revenue" means something else)
+exclude_after_match:
+  - "cash(?:\\s|,|$)|cash\\s+equivalents|marketable\\s+securities"
+  - "discrete\\s+benefit|one-time\\s+benefit|appeal\\s+recovery"
+  - "\\$[\\d,.]+\\s+to\\s+[\\w\\s]+\\s+revenue"
