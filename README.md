@@ -2,14 +2,12 @@
 
 Data pipelines repository for ingesting, validating, and storing financial datasets.
 
-This repository is **not** `TradingPythonAgent`. It contains pipeline code only:
+This repository contains data pipelines code and depends on the utilities setup managed in `infra-platform`:
 
 - data ingestion modules (`fundamentals`, `macro`, `markets`)
 - Airflow DAGs (`src/_airflow_dags_`)
 - pipeline-oriented tests
 - pipeline CI (`Jenkinsfile`)
-
-Model training/serving and modeling-specific workflows live in the separate `TradingPythonAgent` repository.
 
 ## Scope
 
